@@ -3,7 +3,7 @@ Dynamically transport information through a clone into the migrated solution.
 
 
 
-<img src="./docs/assets/screenshot.png" alt="screenshot" style="zoom:50%;" />
+<img src="./docs/assets/screenshot.png" alt="screenshot" style="zoom:80%;" />
 
 
 
