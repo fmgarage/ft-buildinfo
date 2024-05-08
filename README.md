@@ -1,4 +1,4 @@
-# ft-buildinfo
+# FT Build Info
 Dynamically transport information through a clone into the migrated solution.
 
 
