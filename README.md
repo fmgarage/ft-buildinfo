@@ -15,6 +15,6 @@ When you deploy a new version of your solution, you cannot use normal fields to 
 
 ## How Does It Work?
 
-We use a text field in a global table to store json in the next serial value. On inserting a new record, the 'default' field will be set using the 'next value'. In version 2 this works natively without any plugins, and you can store as much data as you'll need, we have tested this with up to 1MB of random text, the example file contains 200k of Lorem Ipsum sample text.
+We use a text field in a global table to store json in the next serial value. On inserting a new record, the 'default' field will be set using the 'next value'. In version 2 this works natively without any plugins, and you can store as much data as you'll need, we have tested this with up to 1MB of random text, the example file contains 100k of Lorem Ipsum sample text.
 
 After data migration, all fields retain the 'old' values from your previous production file. Upon opening the file, we perform a quick check of the field’s ModCount by querying the internal FileMaker_Fields table. As the ModCount changes every time you set new build information, any new version will be detected by the script, and the information will be extracted by creating a temporary new record. This process occurs only once for each release.
