@@ -9,14 +9,12 @@ Dynamically transport information through a clone into the migrated solution.
 
 ## About This Project
 
-When you deploy a new version of your solution, you cannot use normal fields to carry information such as version numbers, build numbers, or timestamps. These will be overwritten during data migration. Normally, a calculation field would do the trick; however, setting their values manually as part of your deployment pipeline or routine is not suitable for modern CI/CD scenarios.
+When you deploy a new version of your solution, you cannot use normal fields to store information such as version numbers, build numbers and timestamps or even normal record data. These will be overwritten during data migration. Normally, a calculation field would do the trick; however, manually setting their values as part of your deployment pipeline or routine is not suitable for modern CI/CD scenarios.
 
 
 
 ## How Does It Work?
 
-We use a serial number field in a global table to store json in the next serial value, and, yes!, since 'everything in Filemaker is text' it is possible to store in this place not only a number but a very large json text with all the data you need. 
+We use a text field in a global table to store json in the next serial value. On inserting a new record, the 'default' field will be set using the 'next value'. In version 2 this works natively without any plugins, and you can store as much data as you'll need, we have tested this with up to 1MB of random text, the example file contains 200k of Lorem Ipsum sample text.
 
-This works natively without any plugins, and you can store as much data as you'll need.
-
-After data migration, all fields contain the 'old' values from your previous production file. Upon opening the file, we perform a quick check of the field’s ModCount by querying the internal FileMaker_Fields table. As the ModCount changes every time you set new build information, a new version will be detected in the script, and the information will be extracted by creating a temporary new record. All this happens only once for every release. 
+After data migration, all fields retain the 'old' values from your previous production file. Upon opening the file, we perform a quick check of the field’s ModCount by querying the internal FileMaker_Fields table. As the ModCount changes every time you set new build information, any new version will be detected by the script, and the information will be extracted by creating a temporary new record. This process occurs only once for each release.
