@@ -21,6 +21,12 @@ After data migration, all fields retain the 'old' values from your previous prod
 
 
 
+## Requirements
+
+You need a plugin to perform the ALTER statement, but only on the build side. The demo uses the MBS Plugin because of its support for execution onIdle, but any plugin with sql functions will do. 
+
+
+
 ## Usage Examples
 
 Besides providing version information there are plenty of situations, where storing data in a clone could come in handy:
